@@ -60,4 +60,4 @@ constexpr vector<Size> coordinate_descent(const matrix<Size>& A,
 
   return x;
 }
-}  // namespace uni::math::optimization
+}  // namespace uni::math::opt

@@ -43,14 +43,13 @@ class matrix
     return m_data[i * Cols + j];
   }
 
-  constexpr value_type& at(std::size_t index)
-    requires(Rows == 1 || Cols == 1)
+  constexpr value_type& at(std::size_t index) requires(Rows == 1 || Cols == 1)
   {
     assert(index < Rows * Cols);
     return m_data[index];
   }
   constexpr const value_type& at(std::size_t index) const
-    requires(Rows == 1 || Cols == 1)
+      requires(Rows == 1 || Cols == 1)
   {
     assert(index < Rows * Cols);
     return m_data[index];
@@ -206,8 +205,7 @@ class matrix
 
   constexpr static matrix<Rows, Cols> zero() { return matrix<Rows, Cols>{}; }
 
-  constexpr static matrix<Rows, Cols> identity()
-    requires(Rows == Cols)
+  constexpr static matrix<Rows, Cols> identity() requires(Rows == Cols)
   {
     auto result = matrix<Rows, Cols>(0);
     for (std::size_t i = 0; i < Rows; ++i)
@@ -215,8 +213,8 @@ class matrix
     return result;
   }
 
-  constexpr static matrix<Rows, Cols> e(std::size_t i)
-    requires(Rows == 1 || Cols == 1)
+  constexpr static matrix<Rows, Cols> e(std::size_t i) requires(Rows == 1 ||
+                                                                Cols == 1)
   {
     assert(i < Rows * Cols);
     auto result = matrix<Rows, Cols>::zero();
